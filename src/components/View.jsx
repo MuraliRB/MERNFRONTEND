@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import {
+  Paper,
+  TableContainer,
+  TableBody,
+  TableCell,
+  Table,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 const prod = "https://mernbackend-vgii.onrender.com";
 const local = "http://localhost:5000";
 
@@ -20,25 +29,29 @@ const View = () => {
 
   return (
     <div className="App">
-      <table border="5px">
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Action</th>
-        </tr>
-
-        <tr>
-          <td>{data.name}</td>
-          <td>{data.age}</td>
-          <td>{data.email}</td>
-          <td>{data.password}</td>
-          <button>Update</button>
-        </tr>
-
-        <tr></tr>
-      </table>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Age</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Password</TableCell>
+              <TableCell>Action</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody></TableBody>
+          <TableRow>
+            <TableCell>{data.name}</TableCell>
+            <TableCell>{data.age}</TableCell>
+            <TableCell>{data.email}</TableCell>
+            <TableCell>{data.password}</TableCell>
+            <TableCell>
+              <button>Update</button>
+            </TableCell>
+          </TableRow>
+        </Table>
+      </TableContainer>
     </div>
   );
 };
